@@ -1,11 +1,10 @@
-import cv2 as cv
+import cv2
 import numpy as np
 
+cap = cv2.VideoCapture('Lane.mp4')
 
-cap = cv.VideoCapture('/Lane.mp4')
-while(cap.isOpened()):
-    ret, frame = cap.read()
-    #frame = lanesDetection(frame)
-    cv.imshow('Lanes Detection', frame)
-    if cv.waitKey(1) & 0xFF == ord('q'):
+while True:
+    success, img = cap.read()
+    cv2.imshow("Lane Detection", img)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
